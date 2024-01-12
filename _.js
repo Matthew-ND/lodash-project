@@ -1,5 +1,15 @@
 
-const _ = {};
+const _ = {
+    clamp(num, lowR, highR) {
+        if (num <= lowR) {
+            return lowR;
+        } else if (num >= highR) {
+            return highR;
+        } else {
+            return num;
+        }
+    }
+};
 
 
 

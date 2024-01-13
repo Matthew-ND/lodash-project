@@ -25,7 +25,30 @@ const _ = {
             low = highR;
         }
         return num >= low && num < high;
-    }
+    }, // EXPERIMENT
+
+    //.words() takes on argument: a string
+    //Splits the string into an array identifying words by a space
+    words(str) {
+        return str.split(' ');
+    },
+
+    //.pad() takes in two arguments: a string and a length
+    //Returns a string with spacing added to match length evenly
+    pad(str, length) {
+        let spaceCounter = length - str.length;
+        while (spaceCounter > 0) {
+            if (spaceCounter % 2 === 1) {
+            str = str + ' ';
+            } else {
+            str = ' ' + str;
+            }
+            spaceCounter--;
+        }
+        return str;
+    },
+
+    
 };
 
 

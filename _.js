@@ -48,10 +48,34 @@ const _ = {
         return str;
     },
 
-    
+    //.has() takes two arguments: an object and a key
+    //Check if there is a value assigned to the object.key
+    has(obj, key) {
+        return obj[key] === undefined ? false : true;
+    },
+
+    //.invert() takes one argument: an object
+    //Swaps key/value pairs
+    invert(obj) {
+        let invertedObj = {};
+        for(const key in obj) {
+            invertedObj[obj[key]] = key;
+        }
+        return invertedObj;
+    },
+
+    //.findKey() takes two arguments: an object and a predicate function
+    //Returns the key who's value returns true or if none are true, return undefined
+    findKey(obj, predicate) {
+        for (const key in obj) {
+            if (predicate(obj[key])) {
+                return key;
+            }
+        }
+        return undefined;
+    }
+
 };
-
-
 
 
 // Do not write or modify code below this line.

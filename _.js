@@ -10,7 +10,7 @@ const _ = {
         } else {
             return num;
         }
-    }, // EXPERIMENT WITH MATH.MIN / MATH.MAX
+    }, 
 
     //.inRange() takes three arguments: a number, a start value, and an end value.
     //Returns true if number is within range, false if it is outside
@@ -25,7 +25,7 @@ const _ = {
             low = highR;
         }
         return num >= low && num < high;
-    }, // EXPERIMENT
+    }, 
 
     //.words() takes on argument: a string
     //Splits the string into an array identifying words by a space
@@ -73,10 +73,45 @@ const _ = {
             }
         }
         return undefined;
+    },
+
+    //.drop() takes two arguments: an array and a number representing the number of items to drop from the beginning of the array
+    //Deletes the input number of array items from the start of the list
+    drop(arr, num = 1) {
+        const newArr = arr.slice(num);
+        return newArr;
+    },
+
+    //.dropWhile() takes two arguments: an array and a predicate function
+    //Returns a new array starting at the first index that the predicate function returns false
+    dropWhile(arr, predicate) {
+        let sliceCount;
+        for (const i of arr) {
+            if (!predicate(arr[i], i, arr)) {
+                sliceCount = i;
+                break;
+            }
+        }
+        const newArr = arr.slice(sliceCount);
+        return newArr;
+    },
+
+    //.chunk() takes two arguments: an array and a size
+    //Nests a given array indecies into groups of provided size. If 
+    chunk(arr, size = 1) {
+        let newArr = [];
+        while (arr.length - 1 > 0) {
+            const arrChunk = arr.splice(0, size);
+            newArr.push(arrChunk);
+        }
+        if (arr.length > 0) {
+            newArr.push([arr[0]]);
+        }
+        return newArr;
     }
-
 };
-
-
+    
+const testArr = [1, 2, 3, 4, 5];
+console.log(_.chunk(testArr));
 // Do not write or modify code below this line.
 module.exports = _;

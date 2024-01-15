@@ -110,8 +110,6 @@ const _ = {
         return newArr;
     }
 };
-    
-const testArr = [1, 2, 3, 4, 5];
-console.log(_.chunk(testArr));
+
 // Do not write or modify code below this line.
 module.exports = _;
